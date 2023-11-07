@@ -8,12 +8,12 @@ import streamlit as st
 st.title('Generador de preguntas relacionadas con el tema ingresado')
 st.caption('Introduzca en la consola la clave API como password antes y luego de ingresar el tema')
 
-OPENAI_API_KEY = getpass()
+openai_api_key = st.sidebar.text_input('OpenAI API Key')
 
 llm = OpenAI(
     temperature=0.5,
     model_name='gpt-3.5-turbo',
-    openai_api_key=OPENAI_API_KEY,
+    openai_api_key=openai_api_key,
     max_tokens=150
 )
 
